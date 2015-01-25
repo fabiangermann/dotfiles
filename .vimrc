@@ -26,37 +26,37 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vimlatex'
-Plugin 'Rykka/InstantRst'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'unite.vim'
 Plugin 'Rykka/riv.vim'
+Plugin 'Rykka/InstantRst'
+Plugin 'vimlatex'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" Use vim settings rather than vi settings
 
 " ========================================
-" Styling
+" Basic Settings
 " ========================================
+syntax on                           " syntax highlighting
+filetype on                         " try to dectect filetypes
+filetype plugin indent on           " enable loading indent file for filetype
+set encoding=utf-8                  " default encoding
+set title                           " show title in titlebar
+set number                          " show line numbers
+set ruler                           " show ruler
 
-" General styling
-syntax enable
 set background=dark
 colorscheme solarized
-"let g:solarized_termcolors=256
-set number
-set ruler
+
+
+" dont bell or blink
+set noerrorbells
+set vb t_vb=
+
+set cursorline                      " have a line indicate the cursor location
+set ruler                           " show cursor position all the time
+set scrolloff=3                     " keep 4 context lines above and below cursor
 
 " ========================================
 " Behaviour
@@ -76,12 +76,18 @@ set noerrorbells " no noise
 
 " Indention
 set smartindent
+set cindent " Using cindent over smartindent fixes jumping python comments to begin of line for example. Use only one or the other (smartindent/cindent)
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab " spaces instead of tabs
 set autoindent " auto indention
 set pastetoggle=<F2>
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html,xhtml,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal tabstop=4 shiftwidth=2 softtabstop=2
+
 
 " Searching
 set incsearch " incremental (live) searching
@@ -89,37 +95,34 @@ set incsearch " incremental (live) searching
 set ignorecase " enable non case sensitive searching
 set scs " overwrite ignorecase when searchpattern contains uppers
 
+
 " Remove all trailing whitespaces when saving
 autocmd BufWritePre * :%s/\s\+$//e
 
 
 " ========================================
 " Bindings
+"
 " ========================================
-nmap <F4> :NERDTreeToggle:NERDTreeToggle<CR>
 nmap <F3> :TlistToggle<CR>
 cmap w!! %!sudo tee > /dev/null %
 
-if has("gui_running")
-    nmap <C-V> "+gP
-    vmap <C-V> d<ESC><C-V>
-    vmap <C-C> "+y
-    vmap <C-X> "+x
-endif
-
 
 " ========================================
+"
 " Various
 " ========================================
 
 " Highlight Characters in lines with overlength (PEP8)
 if exists('+colorcolumn')
     set colorcolumn=80
+
 else
     highlight OverLength ctermbg=red ctermfg=white guibg=#843737
     match OverLength /\%81v.\+/
     "let w:m1=matchadd('OverLength', '\%>79v.\+', -1)
 endif
+
 
 "highlight ColorColumn ctermbg=233
 
@@ -127,28 +130,13 @@ endif
 " ========================================
 " Plugins
 " ========================================
+"
+" Taglist
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
-" Pathogen
-"filetype off
-"call pathogen#infect()
-"call pathogen#helptags()
-
-" Filetype
-filetype plugin indent on " required for python-mode
-
-" Python-Mode
-let g:pymode_folding = 0
-"let g:pymode_lint_write = 0 " Disable pylint checking every save
-let g:pymode_run_key = "<F5>"
-let g:pymode_lint_checker = "pyflakes,pep8,mccabe" " Add pep257 for docstrings
-"let g:pymode_lint_ignore = "E123,E124,E126,E128"
-let g:pymode_lint_cwindow = 0 " Dont auto open cwindow if errors were found
-let g:pymode_lint_onfly = 0 " Run linter on the fly
-
-"snipMate
-
-"taglist
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" Sparkup
+let g:sparkupDoubleQuote = 1 " Double quotes for html attribute tags
+autocmd FileType htmldjango runtime! ftplugin/html/sparkup.vim
 
 "InstantRst
 let g:instant_rst_browser = 'chromium'
@@ -156,10 +144,8 @@ let g:instant_rst_browser = 'chromium'
 "riv
 let g:riv_disable_folding = 1
 
-" ========================================
-" Various
-" ========================================
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType html,xhtml,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal tabstop=4 shiftwidth=2 softtabstop=2
+" Synctastic
+augroup mine
+    au BufWinEnter * sign define dummy
+    au BufWinEnter * exe "sign place 1337 line=1 name=dummy buffer=" . bufnr('%')
+augroup END
