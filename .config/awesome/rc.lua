@@ -9,7 +9,8 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Transparency
-awful.util.spawn_with_shell("xcompmgr -cF &")
+awful.util.spawn_with_shell("xcompmgr -c &")
+--awful.util.spawn_with_shell("cairo-compmgr &")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
@@ -88,12 +89,13 @@ end
 -- Define a tag table which hold all screen tags.
 tags = {
    settings = {
-     { names  = { "dev local", "dev live" },
-       layout = { layouts[3], layouts[3] }
+     { names  = { "1", "2", "3", "4", "5" },
+       layout = { layouts[3], layouts[3], layouts[3], layouts[3], layouts[3] }
      },
-     { names  = { "www", "admin" },
-       layout = { layouts[3], layouts[3] }
- }}}
+     { names  = { "1", "2", "3", "4", "5" },
+       layout = { layouts[3], layouts[3], layouts[3], layouts[3], layouts[3] }
+     }
+}}
 
  for s = 1, screen.count() do
      tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
