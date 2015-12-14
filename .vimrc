@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 Plugin 'altercation/vim-colors-solarized'
@@ -88,6 +88,12 @@ autocmd FileType css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html,xhtml,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal tabstop=4 shiftwidth=2 softtabstop=2
 
+autocmd Filetype java set makeprg=javac\ %
+set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+map <F9> :make<Return>:copen<Return>
+map <F10> :cprevious<Return>
+map <F11> :cnext<Return>
+
 
 " Searching
 set incsearch " incremental (live) searching
@@ -123,6 +129,7 @@ else
     "let w:m1=matchadd('OverLength', '\%>79v.\+', -1)
 endif
 
+set tags=~/.tags;
 
 "highlight ColorColumn ctermbg=233
 
@@ -140,6 +147,8 @@ autocmd FileType htmldjango runtime! ftplugin/html/sparkup.vim
 
 "InstantRst
 let g:instant_rst_browser = 'chromium'
+let g:instant_rst_template = '~/instant-rst-template/'
+let g:instant_rst_static = '~/instant-rst-template/static/'
 
 "riv
 let g:riv_disable_folding = 1

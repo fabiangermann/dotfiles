@@ -1,4 +1,6 @@
 require("volume")
+require("battery")
+--require("kbdconfig")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -9,7 +11,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Transparency
-awful.util.spawn_with_shell("xcompmgr -cF &")
+awful.util.spawn_with_shell("xcompmgr")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
@@ -69,7 +71,7 @@ local layouts =
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier
@@ -87,17 +89,17 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-   settings = {
-     { names  = { "dev local", "dev live" },
-       layout = { layouts[3], layouts[3] }
-     },
-     { names  = { "www", "admin" },
-       layout = { layouts[3], layouts[3] }
- }}}
+    settings = {
+        { names  = { "1", "2", "3", "4", "5" },
+        layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2] }
+    },
+    { names  = { "www", "admin" },
+    layout = { layouts[3], layouts[3] }
+}}}
 
- for s = 1, screen.count() do
-     tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
- end
+for s = 1, screen.count() do
+    tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
+end
 -- }}}
 
 -- {{{ Menu
@@ -123,7 +125,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock('%a %b %d, %H:%M W%V')
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -205,7 +207,9 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
+    right_layout:add(batterywidget)
     right_layout:add(volume_widget)
+    -- right_layout:add(kbdcfg)
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
@@ -280,7 +284,12 @@ globalkeys = awful.util.table.join(
         awful.util.spawn("amixer set Master 9%-", false) end),
     awful.key({ }, "XF86AudioMute", function ()
         awful.util.spawn("amixer sset Master toggle", false) end),
-
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("python3 /home/fg/bn.py 100", false) end),
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("python3 /home/fg/bn.py -100", false) end),
+    awful.key({ }, "Print", function ()
+        awful.util.spawn("deepin-screenshot", false) end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),

@@ -17,10 +17,10 @@ function update_volume(widget)
 
    if string.find(status, "on", 1, true) then
        -- For the volume numbers
-       volume = volume .. "%"
+       volume = volume .. "%  "
    else
        -- For the mute button
-       volume = volume .. "M"
+       volume = volume .. "M  "
 
    end
    widget:set_markup(volume)
