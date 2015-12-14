@@ -26,12 +26,17 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'sjl/gundo.vim'
+Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'unite.vim'
 Plugin 'Rykka/riv.vim'
 Plugin 'Rykka/InstantRst'
 Plugin 'vimlatex'
+Plugin 'syntastic'
+Plugin 'sjl/gundo.vim'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 call vundle#end()            " required
 
@@ -48,6 +53,9 @@ set ruler                           " show ruler
 
 set background=dark
 colorscheme solarized
+"let base16colorspace=256
+"colorscheme base16-default
+"set t_Co=256
 
 
 " dont bell or blink
@@ -122,16 +130,18 @@ cmap w!! %!sudo tee > /dev/null %
 " Highlight Characters in lines with overlength (PEP8)
 if exists('+colorcolumn')
     set colorcolumn=80
-
 else
     highlight OverLength ctermbg=red ctermfg=white guibg=#843737
     match OverLength /\%81v.\+/
-    "let w:m1=matchadd('OverLength', '\%>79v.\+', -1)
 endif
 
 set tags=~/.tags;
 
 "highlight ColorColumn ctermbg=233
+" Set text width to 72 chars (automatically create new lines when
+" writing comments)
+set tw=72
+set fo=cq
 
 
 " ========================================
@@ -140,6 +150,8 @@ set tags=~/.tags;
 "
 " Taglist
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+
+set tags=~/.tags
 
 " Sparkup
 let g:sparkupDoubleQuote = 1 " Double quotes for html attribute tags
@@ -153,8 +165,53 @@ let g:instant_rst_static = '~/instant-rst-template/static/'
 "riv
 let g:riv_disable_folding = 1
 
-" Synctastic
+"vimlatex
+set grepprg=grep\ -nH\ $* " According to manual
+let g:tex_flavor='latex' " According to manual
+
+" ========================================
+" Syntastic
+" ========================================
 augroup mine
     au BufWinEnter * sign define dummy
     au BufWinEnter * exe "sign place 1337 line=1 name=dummy buffer=" . bufnr('%')
 augroup END
+
+" Recommended settings by readme
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
