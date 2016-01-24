@@ -1,0 +1,31 @@
+{
+    "sendMode": "kb",
+    "filter": {
+        "regex": null,
+        "isRecursive": false
+    },
+    "matchCase": false,
+    "hotkey": {
+        "hotKey": null,
+        "modifiers": []
+    },
+    "modes": [
+        1
+    ],
+    "omitTrigger": false,
+    "prompt": false,
+    "showInTrayMenu": false,
+    "description": "Latex Item",
+    "abbreviation": {
+        "wordChars": "[\\w]",
+        "immediate": false,
+        "backspace": true,
+        "abbreviations": [
+            "a-"
+        ],
+        "triggerInside": false,
+        "ignoreCase": false
+    },
+    "usageCount": 3,
+    "type": "phrase"
+}

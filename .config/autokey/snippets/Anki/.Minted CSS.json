@@ -1,0 +1,31 @@
+{
+    "sendMode": "kb",
+    "filter": {
+        "regex": "anki",
+        "isRecursive": false
+    },
+    "matchCase": false,
+    "hotkey": {
+        "hotKey": null,
+        "modifiers": []
+    },
+    "modes": [
+        1
+    ],
+    "omitTrigger": false,
+    "prompt": false,
+    "showInTrayMenu": false,
+    "description": "Minted CSS",
+    "abbreviation": {
+        "wordChars": "[\\w]",
+        "immediate": true,
+        "backspace": true,
+        "abbreviations": [
+            "acss"
+        ],
+        "triggerInside": false,
+        "ignoreCase": false
+    },
+    "usageCount": 3,
+    "type": "phrase"
+}

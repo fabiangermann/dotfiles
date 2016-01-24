@@ -1,0 +1,23 @@
+{
+    "hotkey": {
+        "hotKey": null,
+        "modifiers": []
+    },
+    "usageCount": 0,
+    "showInTrayMenu": false,
+    "type": "folder",
+    "abbreviation": {
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "backspace": true,
+        "abbreviations": [],
+        "wordChars": "[\\w]"
+    },
+    "title": "Anki",
+    "modes": [],
+    "filter": {
+        "isRecursive": false,
+        "regex": null
+    }
+}
