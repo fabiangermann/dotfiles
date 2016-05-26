@@ -14,7 +14,7 @@
     "abbreviation": {
         "triggerInside": false,
         "abbreviations": [
-            "a-css"
+            "a-js"
         ],
         "backspace": true,
         "ignoreCase": false,
@@ -24,8 +24,8 @@
     "matchCase": false,
     "omitTrigger": false,
     "sendMode": "kb",
-    "usageCount": 12,
-    "description": "Latex Item CSS",
+    "usageCount": 0,
+    "description": "Latex Item JS",
     "type": "phrase",
     "showInTrayMenu": false
 }
