@@ -1,5 +1,8 @@
+require("local")
 require("volume")
 require("battery")
+local lain = require("lain") -- https://github.com/copycat-killer/lain/
+
 --require("kbdconfig")
 -- Standard awesome library
 local gears = require("gears")
@@ -63,7 +66,6 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
@@ -73,6 +75,7 @@ local layouts =
     --awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
+    awful.layout.suit.floating,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier
 }
@@ -126,7 +129,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock('%a %b %d, %H:%M W%V')
+mytextclock = awful.widget.textclock(' %a %b %d, %H:%M | W%V')
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -207,9 +210,12 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(wibox.widget.textbox(' | '))
     right_layout:add(mytextclock)
-    right_layout:add(batterywidget)
+    if show_battery_widget then right_layout:add(batterywidget) end
+    right_layout:add(wibox.widget.textbox(' |'))
     right_layout:add(volume_widget)
+    right_layout:add(wibox.widget.textbox('| '))
     -- right_layout:add(kbdcfg)
     right_layout:add(mylayoutbox[s])
 
@@ -420,7 +426,7 @@ client.connect_signal("manage", function (c, startup)
     if not startup then
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
-        -- awful.client.setslave(c)
+        awful.client.setslave(c)
 
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then

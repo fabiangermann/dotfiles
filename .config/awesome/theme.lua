@@ -4,6 +4,16 @@
 
 theme = {}
 
+-- Begin lain stuff
+theme.useless_gap_width = 10
+
+theme.lain_icons         = "/usr/share/awesome/lib/lain/icons/layout/default/"
+theme.layout_termfair    = theme.lain_icons .. "termfairw.png"
+theme.layout_cascade     = theme.lain_icons .. "cascadew.png"
+theme.layout_cascadetile = theme.lain_icons .. "cascadetilew.png"
+theme.layout_centerwork  = theme.lain_icons .. "centerworkw.png"
+-- End lain stuff
+
 theme.font          = "sans 8"
 
 theme.bg_normal     = "#222222"

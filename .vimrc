@@ -91,7 +91,9 @@ set pastetoggle=<F2>
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html,xhtml,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal tabstop=4 shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
+
+autocmd FileType rst setlocal makeprg=/usr/bin/rst2pdf
 
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
@@ -102,7 +104,7 @@ map <F11> :cnext<Return>
 
 " Searching
 set incsearch " incremental (live) searching
-"set hlsearch " highlight search results
+set nohlsearch " highlight search results
 set ignorecase " enable non case sensitive searching
 set scs " overwrite ignorecase when searchpattern contains uppers
 
@@ -158,6 +160,7 @@ autocmd FileType htmldjango runtime! ftplugin/html/sparkup.vim
 let g:instant_rst_browser = 'chromium'
 let g:instant_rst_template = '~/instant-rst-template/'
 let g:instant_rst_static = '~/instant-rst-template/static/'
+let g:instant_rst_bind_scroll = 0
 
 "riv
 let g:riv_disable_folding = 1
