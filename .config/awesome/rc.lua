@@ -91,10 +91,10 @@ end
 tags = {
    settings = {
      { names  = { "1", "2", "3", "4", "5" },
-       layout = { layouts[3], layouts[3], layouts[3], layouts[3], layouts[3] }
+       layout = { layouts[4], layouts[4], layouts[4], layouts[4], layouts[4] }
      },
      { names  = { "1", "2", "3", "4", "5" },
-       layout = { layouts[3], layouts[3], layouts[3], layouts[3], layouts[3] }
+       layout = { layouts[4], layouts[4], layouts[4], layouts[4], layouts[4] }
      }
 }}
 
@@ -280,15 +280,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-        awful.util.spawn("amixer set Master 9%+", false) end),
+        awful.util.spawn("amixer -c1 set Master 9%+", false) end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-        awful.util.spawn("amixer set Master 9%-", false) end),
+        awful.util.spawn("amixer -c1 set Master 9%-", false) end),
     awful.key({ }, "XF86AudioMute", function ()
-        awful.util.spawn("amixer sset Master toggle", false) end),
+        awful.util.spawn("amixer -c1 sset Master toggle", false) end),
     awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("python3 /home/fg/bn.py 100", false) end),
+        awful.util.spawn("python3 /home/fg/brightness.py 50", false) end),
     awful.key({ }, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("python3 /home/fg/bn.py -100", false) end),
+        awful.util.spawn("python3 /home/fg/brightness.py -50", false) end),
     awful.key({ }, "Print", function ()
         awful.util.spawn("deepin-screenshot", false) end),
 

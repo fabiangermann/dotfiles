@@ -1,62 +1,63 @@
 [global_config]
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  borderless = True
   close_button_on_tab = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  handle_size = 1
+  inactive_color_offset = 1.0
   scroll_tabbar = True
   suppress_multiple_term_dialog = True
-  borderless = True
-  inactive_color_offset = 1.0
 [keybindings]
-  reset = Disabled
-  go_up = <Ctrl><Shift>K
-  next_tab = <Shift>Right
-  move_tab_right = <Ctrl>Right
-  prev_tab = <Shift>Left
   go_down = <Ctrl><Shift>J
-  move_tab_left = <Ctrl>Left
-  go_right = <Ctrl><Shift>L
-  new_tab = <Shift>Down
   go_left = <Ctrl><Shift>H
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    login_shell = True
-    background_image = None
-    background_darkness = 0.8
-    scrollback_lines = 5000
-    use_system_font = False
-    cursor_color = "#eee8d5"
-    foreground_color = "#eee8d5"
-    scroll_on_output = False
-    font = Droid Sans Mono 10
-    background_color = "#002b36"
-  [[solarized-dark]]
-    scrollbar_position = hidden
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    background_image = None
-    use_system_font = False
-    cursor_color = "#eee8d5"
-    foreground_color = "#eee8d5"
-    scroll_on_output = False
-    font = Droid Sans Mono 10
-    background_color = "#002b36"
-  [[solarized-light]]
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    background_image = None
-    use_system_font = False
-    cursor_color = "#002b36"
-    foreground_color = "#002b36"
-    scroll_on_output = False
-    font = Droid Sans Mono 10
-    background_color = "#eee8d5"
+  go_right = <Ctrl><Shift>L
+  go_up = <Ctrl><Shift>K
+  move_tab_left = <Ctrl>Left
+  move_tab_right = <Ctrl>Right
+  new_tab = <Shift>Down
+  next_tab = <Shift>Right
+  prev_tab = <Shift>Left
+  reset = Disabled
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = solarized-dark
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
       profile = solarized-dark
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    background_darkness = 0.8
+    background_image = None
+    cursor_color = "#eee8d5"
+    font = Droid Sans Mono 10
+    foreground_color = "#eee8d5"
+    login_shell = True
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scroll_on_output = False
+    scrollback_lines = 5000
+    scrollbar_position = hidden
+    use_system_font = False
+  [[solarized-dark]]
+    background_color = "#002b36"
+    background_image = None
+    cursor_color = "#eee8d5"
+    font = Droid Sans Mono 10
+    foreground_color = "#eee8d5"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scroll_on_output = False
+    scrollbar_position = hidden
+    use_system_font = False
+  [[solarized-light]]
+    background_color = "#eee8d5"
+    background_image = None
+    cursor_color = "#002b36"
+    font = Droid Sans Mono 10
+    foreground_color = "#002b36"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scroll_on_output = False
+    use_system_font = False
