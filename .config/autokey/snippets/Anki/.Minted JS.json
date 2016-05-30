@@ -7,14 +7,14 @@
         1
     ],
     "filter": {
-        "regex": null,
+        "regex": "anki",
         "isRecursive": false
     },
     "prompt": false,
     "abbreviation": {
         "triggerInside": false,
         "abbreviations": [
-            "a-css"
+            "ajs"
         ],
         "backspace": true,
         "ignoreCase": false,
@@ -24,8 +24,8 @@
     "matchCase": false,
     "omitTrigger": false,
     "sendMode": "kb",
-    "usageCount": 12,
-    "description": "Latex Item CSS",
+    "usageCount": 0,
+    "description": "Minted JS",
     "type": "phrase",
     "showInTrayMenu": false
 }
