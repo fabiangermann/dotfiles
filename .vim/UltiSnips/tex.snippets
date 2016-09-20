@@ -1,0 +1,84 @@
+###############################################################################
+# Section headers
+###############################################################################
+
+snippet s "\section{ ... }" b
+\section{$1}
+$0
+endsnippet
+
+snippet ss "\subsection{ ... }" b
+\subsection{$1}
+$0
+endsnippet
+
+snippet sss "\subsubsection{ ... }" b
+\subsubsection*{$1}
+$0
+endsnippet
+
+###############################################################################
+# Text formatting
+###############################################################################
+
+snippet red "{\color{red} ... }"
+{\color{red} $1}$0
+endsnippet
+
+snippet blue "{\color{blue} ... }"
+{\color{blue} $1}$0
+endsnippet
+
+snippet bf "\textbf{ ... }"
+\textbf{$1}$0
+endsnippet
+
+snippet it "\textit{ ... }"
+\textit{$1}$0
+endsnippet
+
+snippet tt "\texttt{ ... }"
+\texttt{$1}$0
+endsnippet
+
+###############################################################################
+# Lists
+###############################################################################
+
+snippet ezl "\begin{easylist}" b
+\begin{easylist}
+    & $1
+\end{easylist}
+$0
+endsnippet
+
+###############################################################################
+# Math
+###############################################################################
+snippet frac "\frac{...}{...}"
+\frac{$1}{$2}$0
+endsnippet
+
+snippet bmat "bmatrix []"
+\begin{bmatrix} $1 \\\\ $2 \end{bmatrix}$0
+endsnippet
+
+snippet pmat "pmatrix ()"
+\begin{pmatrix} $1 \\\\ $2 \end{pmatrix}$0
+endsnippet
+
+
+###############################################################################
+# Minted
+###############################################################################
+
+snippet mc "\begin{minted}{c}" b
+\begin{minted}{c}
+$1
+\end{minted}
+$0
+endsnippet
+
+snippet mic "\mintinline{c}{ ... }"
+\mintinline{c}{$1}$0
+endsnippet

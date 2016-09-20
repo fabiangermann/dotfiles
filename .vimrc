@@ -34,6 +34,7 @@ Plugin 'Rykka/InstantRst'
 Plugin 'vimlatex'
 Plugin 'syntastic'
 Plugin 'sjl/gundo.vim'
+Plugin 'UltiSnips'
 
 call vundle#end()            " required
 
