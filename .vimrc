@@ -31,9 +31,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'unite.vim'
 Plugin 'Rykka/riv.vim'
 Plugin 'Rykka/InstantRst'
-Plugin 'vimlatex'
 Plugin 'syntastic'
 Plugin 'sjl/gundo.vim'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'editorconfig-vim'
 
 call vundle#end()            " required
 
@@ -91,7 +93,7 @@ set pastetoggle=<F2>
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html,xhtml,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
+" autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 autocmd FileType rst setlocal makeprg=/usr/bin/rst2pdf
 
@@ -165,9 +167,8 @@ let g:instant_rst_bind_scroll = 0
 "riv
 let g:riv_disable_folding = 1
 
-"vimlatex
-set grepprg=grep\ -nH\ $* " According to manual
-let g:tex_flavor='latex' " According to manual
+"Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " ========================================
 " Syntastic
