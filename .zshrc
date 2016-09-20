@@ -25,6 +25,8 @@ alias nolag="sudo tc qdisc delete dev lo root"
 alias chromium="chromium --ignore-gpu-blacklist"
 alias npb="npm install & bower install"
 
+alias vim="nvim"
+
 # fasd aliases
 alias v='f -e vim -b viminfo' # quick opening files with vim
 
