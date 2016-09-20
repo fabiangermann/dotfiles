@@ -159,7 +159,7 @@ bar {
 new_window pixel 1
 
 # compositing
-exec compton -b
+#exec compton -b
 
 # keybindings
 bindsym $mod+shift+x exec ~/.config/i3/lock.sh
