@@ -1,0 +1,31 @@
+{
+    "type": "phrase",
+    "usageCount": 2,
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": null
+    },
+    "description": "Latex Math",
+    "omitTrigger": false,
+    "modes": [
+        1
+    ],
+    "prompt": false,
+    "showInTrayMenu": false,
+    "filter": {
+        "regex": "anki",
+        "isRecursive": false
+    },
+    "abbreviation": {
+        "ignoreCase": false,
+        "wordChars": "[\\w]",
+        "abbreviations": [
+            "amath"
+        ],
+        "backspace": true,
+        "triggerInside": false,
+        "immediate": true
+    },
+    "matchCase": false,
+    "sendMode": "kb"
+}
