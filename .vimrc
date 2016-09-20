@@ -33,9 +33,8 @@ Plugin 'Rykka/riv.vim'
 Plugin 'Rykka/InstantRst'
 Plugin 'syntastic'
 Plugin 'sjl/gundo.vim'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'Shougo/deoplete.nvim'
 Plugin 'editorconfig-vim'
+Plugin 'UltiSnips'
 
 call vundle#end()            " required
 
@@ -216,3 +215,5 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
+
+set backupcopy=yes
