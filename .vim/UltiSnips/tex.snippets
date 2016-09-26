@@ -21,23 +21,23 @@ endsnippet
 # Text formatting
 ###############################################################################
 
-snippet red "{\color{red} ... }"
+snippet red "{\color{red} ... }" w
 {\color{red} $1}$0
 endsnippet
 
-snippet blue "{\color{blue} ... }"
+snippet blue "{\color{blue} ... }" w
 {\color{blue} $1}$0
 endsnippet
 
-snippet bf "\textbf{ ... }"
+snippet bf "\textbf{ ... }" w
 \textbf{$1}$0
 endsnippet
 
-snippet it "\textit{ ... }"
+snippet it "\textit{ ... }" w
 \textit{$1}$0
 endsnippet
 
-snippet tt "\texttt{ ... }"
+snippet tt "\texttt{ ... }" w
 \texttt{$1}$0
 endsnippet
 
@@ -55,24 +55,24 @@ endsnippet
 ###############################################################################
 # Math
 ###############################################################################
-snippet frac "\frac{...}{...}"
+snippet frac "\frac{...}{...}" w
 \frac{$1}{$2}$0
 endsnippet
 
-snippet nfrac "\nicefrac{...}{...}"
+snippet nfrac "\nicefrac{...}{...}" w
 \nicefrac{$1}{$2}$0
 endsnippet
 
-snippet bmat "bmatrix []"
+snippet bmat "bmatrix []" w
 \begin{bmatrix} $1 \\\\ $2 \end{bmatrix}$0
 endsnippet
 
-snippet pmat "pmatrix ()"
+snippet pmat "pmatrix ()" w
 \begin{pmatrix} $1 \\\\ $2 \end{pmatrix}$0
 endsnippet
 
-snippet vec "vector"
-\vec{$1}$1
+snippet vec "vector" w
+\vec{$1}$0
 endsnippet
 
 snippet align "\begin{align*} ..." b
@@ -95,6 +95,6 @@ $1
 $0
 endsnippet
 
-snippet mic "\mintinline{c}{ ... }"
+snippet mic "\mintinline{c}{ ... }" w
 \mintinline{c}{$1}$0
 endsnippet
