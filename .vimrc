@@ -35,6 +35,7 @@ Plugin 'syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'editorconfig-vim'
 Plugin 'UltiSnips'
+Plugin 'lervag/vimtex'
 
 call vundle#end()            " required
 
@@ -46,8 +47,12 @@ filetype on                         " try to dectect filetypes
 filetype plugin indent on           " enable loading indent file for filetype
 set encoding=utf-8                  " default encoding
 set title                           " show title in titlebar
-set number                          " show line numbers
+"set relativenumber                  " show relative line numbers
+"set number                          " show absolut eline number for current line
 set ruler                           " show ruler
+
+autocmd BufLeave * : setlocal norelativenumber number
+autocmd BufEnter * : setlocal relativenumber number
 
 set background=dark
 colorscheme solarized
