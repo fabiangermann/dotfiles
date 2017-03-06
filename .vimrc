@@ -36,6 +36,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'editorconfig-vim'
 Plugin 'UltiSnips'
 Plugin 'lervag/vimtex'
+Plugin 'vimwiki/vimwiki'
 
 call vundle#end()            " required
 

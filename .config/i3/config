@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec xfce4-terminal --hide-menubar
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -137,10 +137,10 @@ mode "resize" {
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -168,7 +168,7 @@ bindsym "XF86AudioLowerVolume" exec amixer set Master 9%-
 bindsym "XF86AudioMute" exec amixer set Master toggle
 
 # autostart
-exec feh --bg-scale ~/.config/i3/wallpaper.jpg
+exec feh --bg-scale ~/.config/i3/wallpaper.png
 
 # default workspace layout
 workspace_layout stacking
