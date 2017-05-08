@@ -37,6 +37,7 @@ Plugin 'editorconfig-vim'
 Plugin 'UltiSnips'
 Plugin 'lervag/vimtex'
 Plugin 'vimwiki/vimwiki'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()            " required
 
