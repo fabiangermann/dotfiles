@@ -7,12 +7,27 @@ snippet s "\section{ ... }" b
 $0
 endsnippet
 
+snippet s* "\section{ ... }" b
+\section*{$1}
+$0
+endsnippet
+
 snippet ss "\subsection{ ... }" b
 \subsection{$1}
 $0
 endsnippet
 
+snippet ss* "\subsection{ ... }" b
+\subsection*{$1}
+$0
+endsnippet
+
 snippet sss "\subsubsection{ ... }" b
+\subsubsection{$1}
+$0
+endsnippet
+
+snippet sss* "\subsubsection{ ... }" b
 \subsubsection*{$1}
 $0
 endsnippet
@@ -61,6 +76,25 @@ endsnippet
 
 snippet "^\ *(&+)\ ?" "list item indention" r
     `!p snip.rv = match.group(1)`& $0
+endsnippet
+
+snippet desc "\begin{description}" b
+\begin{description}
+    \item[$1] $0
+\end{description}
+endsnippet
+
+###############################################################################
+# Tables
+###############################################################################
+
+snippet tabx "\tabularx" b
+\begin{tabularx}{\columnwidth}{$1}
+    \toprule
+    $0
+    \midrule
+    \bottomrule
+\end{tabularx}
 endsnippet
 
 ###############################################################################
