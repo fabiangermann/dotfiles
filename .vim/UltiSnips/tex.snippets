@@ -17,6 +17,11 @@ snippet sss "\subsubsection{ ... }" b
 $0
 endsnippet
 
+snippet par "\paragraph" b
+\paragraph{$1}
+$0
+endsnippet
+
 ###############################################################################
 # Text formatting
 ###############################################################################
@@ -44,8 +49,42 @@ endsnippet
 ###############################################################################
 # Various
 ###############################################################################
+
+snippet "b(egin)?" "begin{} / end{}" br
+\begin{${1:something}}
+${0:${VISUAL}}
+\end{$1}
+endsnippet
+
 snippet todo "\todo[inline]" b
 \todo[inline]{$1}$0
+endsnippet
+
+snippet todo "\todo" w
+\todo{$1}$0
+endsnippet
+
+snippet today "YYYY-MM-DD" w
+`date +%Y-%m-%d`
+endsnippet
+
+snippet now "HH:MM" w
+`date +%H:%M`
+endsnippet
+
+snippet tab "tabular" b
+\begin{tabularx}{$1X}
+    \toprule
+    $0
+    \midrule
+    \bottomrule
+\end{tabularx}
+endsnippet
+
+snippet mc "\multicols" b
+\begin{multicols}{2}
+$0
+\end{multicols}
 endsnippet
 
 ###############################################################################
@@ -59,9 +98,16 @@ snippet ezl "\begin{easylist}" b
 $0
 endsnippet
 
-snippet "^\ *(&+)\ ?" "list item indention" r
-    `!p snip.rv = match.group(1)`& $0
+snippet desc "\begin{description}" b
+\begin{description}
+    \item[$1] $0
+\end{description}
 endsnippet
+
+snippet item "\item[]" w
+\item[$1] $0
+endsnippet
+
 
 ###############################################################################
 # Math
