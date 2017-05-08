@@ -168,7 +168,7 @@ bindsym "XF86AudioLowerVolume" exec amixer set Master 9%-
 bindsym "XF86AudioMute" exec amixer set Master toggle
 
 # autostart
-exec feh --bg-scale ~/.config/i3/wallpaper.png
+exec feh --bg-scale ~/.config/i3/wallpaper.jpg
 
 # default workspace layout
 workspace_layout stacking
