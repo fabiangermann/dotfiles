@@ -29,8 +29,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'unite.vim'
-Plugin 'Rykka/riv.vim'
-Plugin 'Rykka/InstantRst'
 Plugin 'syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'editorconfig-vim'
@@ -49,10 +47,9 @@ filetype on                         " try to dectect filetypes
 filetype plugin indent on           " enable loading indent file for filetype
 set encoding=utf-8                  " default encoding
 set title                           " show title in titlebar
-"set relativenumber                  " show relative line numbers
-"set number                          " show absolut eline number for current line
 set ruler                           " show ruler
 
+" Relative numbers in active buffer, absolute numbers in all others
 autocmd BufLeave * : setlocal norelativenumber number
 autocmd BufEnter * : setlocal relativenumber number
 
@@ -85,7 +82,7 @@ set noerrorbells " no noise
 " Backup/Swap
 "set backupdir=/home/fg/.vim/backup/
 "set directory=/home/fg/.vim/swap/
-"set hidden " switch buffers without saving
+set hidden " switch buffers without saving
 
 " Indention
 set smartindent
@@ -164,15 +161,6 @@ set tags=~/.tags
 let g:sparkupDoubleQuote = 1 " Double quotes for html attribute tags
 autocmd FileType htmldjango runtime! ftplugin/html/sparkup.vim
 
-"InstantRst
-let g:instant_rst_browser = 'chromium'
-let g:instant_rst_template = '~/instant-rst-template/'
-let g:instant_rst_static = '~/instant-rst-template/static/'
-let g:instant_rst_bind_scroll = 0
-
-"riv
-let g:riv_disable_folding = 1
-
 "Deoplete
 let g:deoplete#enable_at_startup = 1
 
@@ -224,3 +212,5 @@ endfunction
 command! PrettyXML call DoPrettyXML()
 
 set backupcopy=yes
+
+let g:hardtime_default_on = 0

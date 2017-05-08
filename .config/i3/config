@@ -155,9 +155,6 @@ bar {
         status_command i3status
 }
 
-# no titlebars
-new_window pixel 1
-
 # compositing
 #exec compton -b
 
@@ -172,3 +169,12 @@ exec feh --bg-scale ~/.config/i3/wallpaper.jpg
 
 # default workspace layout
 workspace_layout stacking
+
+# solarized red
+set $highlight #dc322f
+
+# class                 border      backgr.     text    indicator child_border
+client.focused          $highlight     $highlight  #ffffff #2e9ef4   $highlight
+
+# border size of active windows
+new_window pixel 3
