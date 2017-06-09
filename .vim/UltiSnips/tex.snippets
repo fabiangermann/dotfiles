@@ -75,10 +75,6 @@ snippet todo "\todo[inline]" b
 \todo[inline]{$1}$0
 endsnippet
 
-snippet todo "\todo" w
-\todo{$1}$0
-endsnippet
-
 snippet today "YYYY-MM-DD" w
 `date +%Y-%m-%d`
 endsnippet
@@ -102,6 +98,22 @@ $0
 \end{multicols}
 endsnippet
 
+snippet fig "\begin{figure}" b
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.9\columnwidth]{$1} \\
+        \caption{$0}
+        \label{fig:$1}
+    \end{center}
+\end{figure}
+endsnippet
+
+snippet tcb "\begin{tcolorbox}" b
+\begin{tcolorbox}[title=$1,parbox=false]
+    $0
+\end{tcolorbox}
+endsnippet
+
 ###############################################################################
 # Lists
 ###############################################################################
@@ -113,10 +125,10 @@ snippet ezl "\begin{easylist}" b
 $0
 endsnippet
 
-snippet desc "\begin{description}" b
-\begin{description}
-    \item[$1] $0
-\end{description}
+snippet itemize "\begin{itemize}" b
+\begin{itemize}
+    \item $0
+\end{itemize}
 endsnippet
 
 snippet desc "\begin{description}" b
