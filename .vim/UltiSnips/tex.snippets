@@ -49,6 +49,11 @@ snippet blue "{\color{blue} ... }" w
 {\color{blue} $1}$0
 endsnippet
 
+
+snippet t "\text{ ... }" w
+\text{$1}$0
+endsnippet
+
 snippet bf "\textbf{ ... }" w
 \textbf{$1}$0
 endsnippet
@@ -59,6 +64,14 @@ endsnippet
 
 snippet tt "\texttt{ ... }" w
 \texttt{$1}$0
+endsnippet
+
+snippet tsp "\textsuperscript{ ... }"
+\textsuperscript{$1}$0
+endsnippet
+
+snippet tsb "\textsubscript{ ... }"
+\textsubscript{$1}$0
 endsnippet
 
 ###############################################################################
@@ -83,25 +96,20 @@ snippet now "HH:MM" w
 `date +%H:%M`
 endsnippet
 
-snippet tab "tabular" b
-\begin{tabularx}{$1X}
-    \toprule
-    $0
-    \midrule
-    \bottomrule
-\end{tabularx}
-endsnippet
-
 snippet mc "\multicols" b
 \begin{multicols}{2}
 $0
 \end{multicols}
 endsnippet
 
+snippet graph "\includegraphics[]{}" w
+\includegraphics[width=\columnwidth]{$0}
+endsnippet
+
 snippet fig "\begin{figure}" b
 \begin{figure}
     \begin{center}
-        \includegraphics[width=.9\columnwidth]{$1} \\
+        \includegraphics[width=.9\columnwidth]{$1}
         \caption{$0}
         \label{fig:$1}
     \end{center}
@@ -112,6 +120,17 @@ snippet tcb "\begin{tcolorbox}" b
 \begin{tcolorbox}[title=$1,parbox=false]
     $0
 \end{tcolorbox}
+endsnippet
+
+snippet minip "\begin{minipage}" b
+\begin{minipage}[t]{.5\columnwidth-.5cm}
+    $1
+\end{minipage}
+\hspace{.5cm}
+\hspace{.5cm}
+\begin{minipage}[t]{.5\columnwidth-.5cm}
+    $0
+\end{minipage}
 endsnippet
 
 ###############################################################################
@@ -131,6 +150,12 @@ snippet itemize "\begin{itemize}" b
 \end{itemize}
 endsnippet
 
+snippet enum "\begin{enumerate}" b
+\begin{enumerate}
+    \item $0
+\end{enumerate}
+endsnippet
+
 snippet desc "\begin{description}" b
 \begin{description}
     \item[$1] $0
@@ -140,6 +165,15 @@ endsnippet
 ###############################################################################
 # Tables
 ###############################################################################
+
+snippet tab "tabular" b
+\begin{tabular}{$1}
+    \toprule
+    $0
+    \midrule
+    \bottomrule
+\end{tabular}
+endsnippet
 
 snippet tabx "\tabularx" b
 \begin{tabularx}{\columnwidth}{$1}
@@ -153,6 +187,10 @@ endsnippet
 ###############################################################################
 # Math
 ###############################################################################
+snippet $ "${...}$" w
+\$$1\$$0
+endsnippet
+
 snippet frac "\frac{...}{...}" w
 \frac{$1}{$2}$0
 endsnippet
@@ -167,6 +205,10 @@ endsnippet
 
 snippet pmat "pmatrix ()" w
 \begin{pmatrix} $1 \\\\ $2 \end{pmatrix}$0
+endsnippet
+
+snippet bm "\bm{ ... }" w
+\bm{$1}$0
 endsnippet
 
 snippet vec "vector" w
@@ -185,6 +227,13 @@ endsnippet
 ###############################################################################
 # Minted
 ###############################################################################
+
+snippet mint "\begin{minted}" b
+\begin{minted}{$1}
+$2
+\end{minted}
+$0
+endsnippet
 
 snippet mc "\begin{minted}{c}" b
 \begin{minted}{c}
@@ -228,4 +277,15 @@ endsnippet
 
 snippet mit "\mintinline{text}{ ... }" w
 \mintinline{text}{$1}$0
+endsnippet
+
+snippet mm "\begin{minted}{matlab}" b
+\begin{minted}{matlab}
+$1
+\end{minted}
+$0
+endsnippet
+
+snippet mim "\mintinline{matlab}{ ... }" w
+\mintinline{matlab}{$1}$0
 endsnippet
