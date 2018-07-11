@@ -1,0 +1,31 @@
+{
+    "sendMode": "kb",
+    "omitTrigger": false,
+    "matchCase": false,
+    "filter": {
+        "isRecursive": false,
+        "regex": "anki"
+    },
+    "type": "phrase",
+    "showInTrayMenu": false,
+    "modes": [
+        1
+    ],
+    "description": "Latex Description",
+    "prompt": false,
+    "usageCount": 5,
+    "hotkey": {
+        "hotKey": null,
+        "modifiers": []
+    },
+    "abbreviation": {
+        "immediate": true,
+        "wordChars": "[\\w]",
+        "abbreviations": [
+            "apm"
+        ],
+        "triggerInside": false,
+        "ignoreCase": false,
+        "backspace": true
+    }
+}

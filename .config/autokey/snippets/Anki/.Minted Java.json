@@ -1,0 +1,31 @@
+{
+    "abbreviation": {
+        "abbreviations": [
+            "aja"
+        ],
+        "triggerInside": false,
+        "ignoreCase": false,
+        "backspace": true,
+        "wordChars": "[\\w]",
+        "immediate": true
+    },
+    "hotkey": {
+        "hotKey": null,
+        "modifiers": []
+    },
+    "type": "phrase",
+    "filter": {
+        "isRecursive": false,
+        "regex": "anki"
+    },
+    "modes": [
+        1
+    ],
+    "usageCount": 6,
+    "description": "Minted Java",
+    "omitTrigger": false,
+    "prompt": false,
+    "matchCase": false,
+    "sendMode": "kb",
+    "showInTrayMenu": false
+}

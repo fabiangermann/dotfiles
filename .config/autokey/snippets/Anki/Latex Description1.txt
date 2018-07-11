@@ -1,0 +1,6 @@
+[latex]\setlist[description]{leftmargin=.4cm,labelindent=\parindent}\begin{description}[noitemsep]
+\item[\texttt{+}] 
+\item[\texttt{+}] 
+\item[\texttt{-}] 
+\item[\texttt{-}] 
+\end{description}[/latex]<up><up><up><up>

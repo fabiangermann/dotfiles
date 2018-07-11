@@ -1,0 +1,31 @@
+{
+    "abbreviation": {
+        "abbreviations": [
+            "aitemize"
+        ],
+        "triggerInside": false,
+        "ignoreCase": false,
+        "backspace": true,
+        "wordChars": "[\\w]",
+        "immediate": true
+    },
+    "hotkey": {
+        "hotKey": null,
+        "modifiers": []
+    },
+    "type": "phrase",
+    "filter": {
+        "isRecursive": false,
+        "regex": "anki"
+    },
+    "modes": [
+        1
+    ],
+    "usageCount": 0,
+    "description": "Latex Itemize",
+    "omitTrigger": false,
+    "prompt": false,
+    "matchCase": false,
+    "sendMode": "kb",
+    "showInTrayMenu": false
+}
