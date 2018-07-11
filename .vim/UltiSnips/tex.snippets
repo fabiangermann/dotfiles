@@ -42,28 +42,32 @@ endsnippet
 ###############################################################################
 
 snippet red "{\color{red} ... }" w
-{\color{red} $1}$0
+{\color{red} ${1:${VISUAL}}}$0
 endsnippet
 
 snippet blue "{\color{blue} ... }" w
-{\color{blue} $1}$0
+{\color{blue} ${1:${VISUAL}}}$0
+endsnippet
+
+snippet green "{\color{green} ... }" w
+{\color{green} ${1:${VISUAL}}}$0
 endsnippet
 
 
 snippet t "\text{ ... }" w
-\text{$1}$0
+\text{${1:${VISUAL}}}$0
 endsnippet
 
 snippet bf "\textbf{ ... }" w
-\textbf{$1}$0
+\textbf{${1:${VISUAL}}}$0
 endsnippet
 
 snippet it "\textit{ ... }" w
-\textit{$1}$0
+\textit{${1:${VISUAL}}}$0
 endsnippet
 
 snippet tt "\texttt{ ... }" w
-\texttt{$1}$0
+\texttt{${1:${VISUAL}}}$0
 endsnippet
 
 snippet tsp "\textsuperscript{ ... }"
@@ -123,12 +127,11 @@ snippet tcb "\begin{tcolorbox}" b
 endsnippet
 
 snippet minip "\begin{minipage}" b
-\begin{minipage}[t]{.5\columnwidth-.5cm}
+\begin{minipage}{.5\columnwidth-.25cm}
     $1
 \end{minipage}
 \hspace{.5cm}
-\hspace{.5cm}
-\begin{minipage}[t]{.5\columnwidth-.5cm}
+\begin{minipage}{.5\columnwidth-.25cm}
     $0
 \end{minipage}
 endsnippet
@@ -145,13 +148,13 @@ $0
 endsnippet
 
 snippet itemize "\begin{itemize}" b
-\begin{itemize}
+\begin{itemize}[leftmargin=.4cm,noitemsep]
     \item $0
 \end{itemize}
 endsnippet
 
 snippet enum "\begin{enumerate}" b
-\begin{enumerate}
+\begin{enumerate}[leftmargin=.4cm,noitemsep]
     \item $0
 \end{enumerate}
 endsnippet
@@ -160,6 +163,16 @@ snippet desc "\begin{description}" b
 \begin{description}
     \item[$1] $0
 \end{description}
+endsnippet
+
+snippet item "\item " w
+\item $0
+endsnippet
+
+snippet iitemize "\begin{inparaitem}"
+\begin{inparaitem}
+    \item $0
+\end{inparaitem}
 endsnippet
 
 ###############################################################################
