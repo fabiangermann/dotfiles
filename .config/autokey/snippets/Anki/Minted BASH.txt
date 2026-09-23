@@ -1,3 +1,0 @@
-[latex]\begin{minted}{bash}
-
-\end{minted}[/latex]<up>

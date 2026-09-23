@@ -1,3 +1,0 @@
-[latex]\begin{minted}{java}
-
-\end{minted}[/latex]<up>

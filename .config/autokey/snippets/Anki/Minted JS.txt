@@ -1,3 +1,0 @@
-[latex]\begin{minted}{js}
-
-\end{minted}[/latex]<up>

@@ -1,3 +1,0 @@
-[latex]\begin{minted}{css}
-
-\end{minted}[/latex]<up>

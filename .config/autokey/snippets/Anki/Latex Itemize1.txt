@@ -1,3 +1,0 @@
-[latex]\begin{itemize}[noitemsep]
-\item 
-\end{itemize}[/latex]<up>

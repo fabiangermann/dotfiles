@@ -1,1 +1,0 @@
-\mintinline{java}{}<left>
