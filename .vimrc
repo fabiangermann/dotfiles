@@ -10,32 +10,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/base16-vim'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'unite.vim'
-Plugin 'syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'sjl/gundo.vim'
-Plugin 'editorconfig-vim'
-Plugin 'UltiSnips'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'lervag/vimtex'
 Plugin 'vimwiki/vimwiki'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 
 call vundle#end()            " required
 
@@ -53,8 +40,9 @@ set ruler                           " show ruler
 autocmd BufLeave * : setlocal norelativenumber number
 autocmd BufEnter * : setlocal relativenumber number
 
-set background=dark
-colorscheme solarized
+set background=light
+"let g:solarized_termtrans=1
+"colorscheme solarized
 "let base16colorspace=256
 "colorscheme base16-default
 "set t_Co=256
@@ -65,23 +53,16 @@ set noerrorbells
 set vb t_vb=
 
 set cursorline                      " have a line indicate the cursor location
-set ruler                           " show cursor position all the time
 set scrolloff=3                     " keep 4 context lines above and below cursor
 
 " ========================================
 " Behaviour
 " ========================================
 
-" Encoding
-set encoding=utf-8
 
 " General
 set wildmenu
-set noerrorbells " no noise
 
-" Backup/Swap
-"set backupdir=/home/fg/.vim/backup/
-"set directory=/home/fg/.vim/swap/
 set hidden " switch buffers without saving
 
 " Indention
@@ -96,7 +77,7 @@ set pastetoggle=<F2>
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType html,xhtml,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 autocmd FileType rst setlocal makeprg=/usr/bin/rst2pdf
 
@@ -122,7 +103,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Bindings
 "
 " ========================================
-nmap <F3> :TlistToggle<CR>
 cmap w!! %!sudo tee > /dev/null %
 
 
@@ -139,21 +119,20 @@ else
     match OverLength /\%81v.\+/
 endif
 
-set tags=~/.tags;
 
-"highlight ColorColumn ctermbg=233
 " Set text width to 72 chars (automatically create new lines when
 " writing comments)
 set tw=72
 set fo=cq
+
+" Disable autowrapping for textfiles
+autocmd FileType text,markdown,rst setlocal tw=0
 
 
 " ========================================
 " Plugins
 " ========================================
 "
-" Taglist
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
 set tags=~/.tags
 
@@ -161,8 +140,6 @@ set tags=~/.tags
 let g:sparkupDoubleQuote = 1 " Double quotes for html attribute tags
 autocmd FileType htmldjango runtime! ftplugin/html/sparkup.vim
 
-"Deoplete
-let g:deoplete#enable_at_startup = 1
 
 " ========================================
 " Syntastic
@@ -172,15 +149,6 @@ augroup mine
     au BufWinEnter * exe "sign place 1337 line=1 name=dummy buffer=" . bufnr('%')
 augroup END
 
-" Recommended settings by readme
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -213,4 +181,3 @@ command! PrettyXML call DoPrettyXML()
 
 set backupcopy=yes
 
-let g:hardtime_default_on = 0
