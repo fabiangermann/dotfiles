@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Obsidian - Personal Knowledge
+Comment=Open new window for Personal Knowledge vault
+Exec=xdg-open "obsidian://advanced-uri?vault=Personal%%20Knowledge&commandid=workspace%%3Anew-window"
+Icon=obsidian
+Type=Application
+Categories=Office;
