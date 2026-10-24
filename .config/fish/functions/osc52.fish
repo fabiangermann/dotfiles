@@ -5,11 +5,14 @@
 # Usage: cat file | osc52
 #        git rev-parse HEAD | osc52
 #
-# Note: prints the sequence in three parts instead of using a command
-# substitution, because `(...)` inside a fish function does not receive
-# the function's piped stdin.
+# Notes:
+# - Reads stdin via `base64 | read` instead of a command substitution,
+#   because `(...)` inside a fish function does not receive the
+#   function's piped stdin.
+# - Buffers the whole payload before emitting the sequence, so stderr
+#   output of the producing command (which goes straight to the terminal)
+#   cannot end up inside the escape sequence and corrupt it.
 function osc52 --description 'Copy stdin to local clipboard via OSC 52'
-    printf '\e]52;c;'
-    base64 -w0
-    printf '\a'
+    base64 -w0 | read -l data
+    printf '\e]52;c;%s\a' $data
 end
