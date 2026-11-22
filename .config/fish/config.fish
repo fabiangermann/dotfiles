@@ -12,3 +12,5 @@ if not set -q SSH_CONNECTION
 end
 
 alias ls "ls --color"
+
+alias fh-cleanup-build-images "podman images --filter reference='registry.4bd9c01.registry.nineapis.ch/*' --format '{{.Repository}}:{{.Tag}}' | xargs -r podman rmi"
