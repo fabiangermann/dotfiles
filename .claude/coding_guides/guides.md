@@ -240,6 +240,12 @@ When the repository is on GitHub, manage the stack with `gh stack` (the
 to top creates the stacked PRs and sets each base, instead of one
 `gh pr create` per branch.
 
+### Pull request descriptions
+
+Before handing over the commands to push branches and open pull requests,
+write each pull request's description with the `pr-description` skill, and
+include the files in the commands with `--body-file`.
+
 ### Changing unmerged work
 
 Until a unit is merged into the main branch, fix things where they were
