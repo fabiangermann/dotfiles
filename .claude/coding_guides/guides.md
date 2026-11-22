@@ -475,12 +475,18 @@ users supply themselves, which no test can reach.
   and personal CLI tools installed with `uv tool install`), prefer
   configuration via files in the user's home directory over other
   mechanisms — this keeps setup inspectable and editable without relying on
-  environment state that isn't visible in the filesystem:
+  environment state that isn't visible in the filesystem. Follow the XDG
+  Base Directory Specification: resolve `$XDG_CONFIG_HOME`,
+  `$XDG_DATA_HOME` and `$XDG_STATE_HOME` first, falling back to the
+  defaults below only when unset:
   - `~/.config/<app>/config` — main configuration file
   - `~/.config/<app>/.env` — if the app uses environment variables; a file
     is often easier to manage than real environment variables, e.g. during
     development
-  - `~/.local/share/<app>` — state files and logs
+  - `~/.local/share/<app>` — user data (databases, downloaded assets)
+  - `~/.local/state/<app>` — state files and logs
+- In Python tools that must also run on macOS/Windows, use `platformdirs`
+  to resolve these paths.
 
 ### Logging
 
